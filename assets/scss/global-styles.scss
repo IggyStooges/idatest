@@ -1,0 +1,13 @@
+$--real-black: #000000;
+$--base-gray: #f3f4f7;
+$--screen-min-tablet: '(min-width: 768px)'; // 768px and more
+
+@mixin min-tablet {
+  @media #{$--screen-min-tablet} {
+    @content;
+  }
+}
+
+.visually-hidden {
+  display: none;
+}
