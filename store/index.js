@@ -1,36 +1,9 @@
+import vehicles from './vehicles.json'
+
 const sleep = (m) => new Promise((resolve) => setTimeout(resolve, m))
-const items = [
-  {
-    cSlug: `WOOPER`,
-    name: `Wooper`,
-    price: `164 $/h`,
-    description: `Brief description of the project, in a few lines.`,
-  },
-  {
-    cSlug: `Shmooper`,
-    name: `Shmooper`,
-    price: `164 $/h`,
-    description: `Brief description of the project, in a few lines.`,
-  },
-  {
-    cSlug: `Puper`,
-    name: `Puper`,
-    price: `164 $/h`,
-    description: `Brief description of the project, in a few lines.`,
-  },
-  {
-    cSlug: `Tropper`,
-    name: `Tropper`,
-    price: `164 $/h`,
-    description: `Brief description of the project, in a few lines.`,
-  },
-  {
-    cSlug: `mopper`,
-    name: `mopper`,
-    price: `164 $/h`,
-    description: `Brief description of the project, in a few lines.`,
-  },
-]
+
+console.log(vehicles)
+const items = vehicles.slice()
 
 export const state = () => ({
   itemsList: [],
@@ -54,7 +27,7 @@ export const actions = {
   },
   async getCurrentItem({ commit }, { route }) {
     await sleep(1000)
-    const item = items.find((item) => item.cSlug === route.params.item)
+    const item = items.find((item) => item.name === route.params.item)
     console.log(route.params)
     await commit('SET_CURRENT_ITEM', item)
   },

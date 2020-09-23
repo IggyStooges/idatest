@@ -1,7 +1,7 @@
 <template>
   <ul :class="$style.items">
-    <li v-for="item in items" :key="item.cSlug" :class="$style.card">
-      <nuxt-link :to="`/item/${item.cSlug}/speca`" :class="$style.card__link">
+    <li v-for="item in items" :key="item.id" :class="$style.card">
+      <nuxt-link :to="`/item/${item.name}/speca`" :class="$style.card__link">
         <img
           :src="item.cImage"
           :class="$style.card__img"

@@ -3,15 +3,15 @@
     <h3>Foo A</h3>
     <ul>
       <li>
-        <NuxtLink :to="`/item/${item.cSlug}/team`" :class="['active-link']">
+        <NuxtLink :to="`/item/${item.name}/team`" :class="['active-link']">
           team
         </NuxtLink>
       </li>
       <li>
-        <NuxtLink :to="`/item/${item.cSlug}/speca`">speca</NuxtLink>
+        <NuxtLink :to="`/item/${item.name}/speca`">speca</NuxtLink>
       </li>
       <li>
-        <NuxtLink :to="`/item/${item.cSlug}/term`">term</NuxtLink>
+        <NuxtLink :to="`/item/${item.name}/term`">term</NuxtLink>
       </li>
     </ul>
     <div class="">
