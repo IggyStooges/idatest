@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Header />
     <Nuxt />
   </div>
 </template>
@@ -25,7 +26,12 @@ html {
 </style>
 
 <script>
+import Header from '~~/components/Header'
+
 export default {
+  сomponents: {
+    Header,
+  },
   computed: {
     meta() {
       return [

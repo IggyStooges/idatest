@@ -17,9 +17,7 @@ export default {
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
-  css: [
-    './assets/scss/global-styles.scss'
-  ],
+  css: ['./assets/scss/global-styles.scss'],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [],
@@ -49,13 +47,13 @@ export default {
     // your settings here
     scss: ['./assets/scss/global-styles.scss'], // alternative: scss
     less: [],
-    stylus: []
+    stylus: [],
   },
   // Content module configuration (https://go.nuxtjs.dev/content-config)
   content: {},
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
-    transpile : [ 'vue-Instantsearch' ,  'Instantsearch.js / es' ],
+    transpile: ['vue-instantsearch', 'instantsearch.js/es'],
   },
 }

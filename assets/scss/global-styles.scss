@@ -1,13 +1,90 @@
 $--real-black: #000000;
+$--light-black: #012345;
+$--real-white: #ffffff;
 $--base-gray: #f3f4f7;
-$--screen-min-tablet: '(min-width: 768px)'; // 768px and more
+$--main-violet: #4959ff;
+$--light-gray: #677b8f;
+$--main-pink: #f84ab3;
+$--min-tablet-width: 768px;
+$--min-desktop-width: 1100px;
+$--root-font-size: 16;
 
 @mixin min-tablet {
-  @media #{$--screen-min-tablet} {
+  @media (min-width: $--min-tablet-width) {
     @content;
   }
 }
 
+@mixin max-mobile {
+  @media (max-width: $--min-tablet-width - 1) {
+    @content;
+  }
+}
+
+@mixin min-desktop {
+  @media (min-width: $--min-desktop-width) {
+    @content;
+  }
+}
+
+@function rem($size) {
+  @return $size / $--root-font-size * 1rem;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: rem(1920);
+  padding-left: rem(15);
+  padding-right: rem(15);
+
+  @include min-desktop {
+    padding-left: rem(65);
+    padding-right: rem(65);
+  }
+}
+
+@mixin visually-hidden {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}
+
 .visually-hidden {
-  display: none;
+  @include visually-hidden;
+}
+
+.btn {
+  border: none;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+
+  &:focus,
+  &:hover {
+    outline: none;
+    transform: none;
+  }
+}
+
+.input {
+  border: none;
+  text-decoration: none;
+  background-color: transparent;
+  font: inherit;
+  &:focus,
+  &:hover {
+    outline: none;
+  }
+}
+
+a {
+  text-decoration: none;
 }
