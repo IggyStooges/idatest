@@ -1,10 +1,23 @@
 <template>
-  <div>team</div>
+  <div>
+    <p>{{ item.term_text.split(`.`, 1).join(`.`) }}</p>
+    <SpecialistsList />
+    <p>{{ item.term_text.split(`.`, 2).join(`.`) }}</p>
+  </div>
 </template>
 
-<style lang="scss" module>
-@import '~~/assets/scss/global-styles.scss';
-.detail__nav-link {
-  color: red;
+<script>
+import SpecialistsList from '~~/components/SpecialistsList'
+
+export default {
+  components: {
+    SpecialistsList,
+  },
+  props: {
+    item: {
+      type: Object,
+      default: () => {},
+    },
+  },
 }
-</style>
+</script>

@@ -16,29 +16,23 @@
 </template>
 
 <style lang="scss" module>
-@import '~~/assets/scss/global-styles.scss';
-
+@import '~~/assets/scss/global-utils.scss';
 .board {
   &__menu {
     display: flex;
     justify-content: space-between;
   }
-
   &__filter {
     font-weight: bold;
     font-size: 24px;
-
     select {
       $color: $--main-violet;
-
       color: $color;
       transition: color 0.3s;
       cursor: pointer;
-
       &:hover {
         color: darken($color, 10%);
       }
-
       &:active,
       &:focus {
         color: darken($color, 20%);
@@ -46,34 +40,29 @@
     }
   }
 }
-
 .add {
   $color: $--main-violet;
   cursor: pointer;
   font-weight: bold;
   color: $color;
   transition: color 0.3s;
-
+  user-select: none;
   &:hover {
     color: darken($color, 10%);
   }
-
   &:focus {
     color: darken($color, 20%);
   }
-
   &:hover & {
     &__btn {
       box-shadow: 0 0 rem(5) rem(5) rgba($--main-violet, 0.5);
     }
   }
-
   &:active & {
     &__btn {
       box-shadow: 0 0 rem(5) rem(2) rgba($--main-violet, 0.5);
     }
   }
-
   &__btn {
     position: relative;
     display: block;
@@ -84,14 +73,12 @@
     background-color: $--main-violet;
     margin-left: rem(12);
     transition: box-shadow 0.2s;
-
     @include min-tablet {
       width: rem(48);
       min-width: rem(48);
       height: rem(48);
       margin-left: rem(20);
     }
-
     &::before,
     &::after {
       content: '';

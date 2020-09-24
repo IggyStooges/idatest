@@ -33,7 +33,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss" module>
-@import '~/assets/scss/global-styles.scss';
-</style>

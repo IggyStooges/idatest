@@ -1,0 +1,44 @@
+$--real-black: #000000;
+$--light-black: #012345;
+$--real-white: #ffffff;
+$--dirty-white: #fcfcfc;
+$--base-gray: #f3f4f7;
+$--main-violet: #4959ff;
+$--light-gray: #677b8f;
+$--main-pink: #f84ab3;
+$--fill-gray: #99A7B5;
+$--min-tablet-width: 768px;
+$--min-desktop-width: 1200px;
+$--root-font-size: 16;
+
+@mixin min-tablet {
+  @media (min-width: $--min-tablet-width) {
+    @content;
+  }
+}
+
+@mixin max-mobile {
+  @media (max-width: $--min-tablet-width - 1) {
+    @content;
+  }
+}
+
+@mixin min-desktop {
+  @media (min-width: $--min-desktop-width) {
+    @content;
+  }
+}
+
+@function rem($size) {
+  @return $size / $--root-font-size * 1rem;
+}
+
+@mixin visually-hidden {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}

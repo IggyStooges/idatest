@@ -1,11 +1,8 @@
 export default {
-  // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
   ssr: false,
 
-  // Target (https://go.nuxtjs.dev/config-target)
   target: 'static',
 
-  // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     title: 'idatest',
     meta: [
@@ -16,43 +13,61 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
-  // Global CSS (https://go.nuxtjs.dev/config-css)
-  css: ['./assets/scss/global-styles.scss'],
+  css: ['normalize.css', './assets/scss/global-styles.scss'],
 
-  // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: [],
+  plugins: [
+    { src: '~plugins/svg4everybody.js', ssr: false }
+  ],
 
-  // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
 
-  // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
-    // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
   ],
-  // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
-    // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
-    // https://go.nuxtjs.dev/content
     '@nuxt/content',
+    '@nuxtjs/svg-sprite',
+    [
+      'nuxt-font-loader-strategy',
+      {
+        ignoreLighthouse: true,
+        ignoredEffectiveTypes: ['2g', 'slow-2g'],
+        fonts: [
+          {
+            fileExtensions: ['woff2', 'woff'],
+            fontFamily: 'Codec Pro',
+            fontFaces: [
+              {
+                preload: true,
+                localSrc: ['CodecPro', 'CodecPro-Light'],
+                src: '@/assets/fonts/CodecPro-Light',
+                fontWeight: 300,
+                fontStyle: 'normal',
+              },
+              {
+                preload: true,
+                localSrc: ['CodecPro', 'CodecPro-Bold'],
+                src: '@/assets/fonts/CodecPro-Bold',
+                fontWeight: 700,
+                fontStyle: 'normal',
+              },
+            ],
+          },
+        ],
+      },
+    ],
   ],
-
-  // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {},
 
   styleResources: {
-    // your settings here
-    scss: ['./assets/scss/global-styles.scss'], // alternative: scss
+    scss: [],
     less: [],
     stylus: [],
   },
-  // Content module configuration (https://go.nuxtjs.dev/content-config)
   content: {},
 
-  // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
     transpile: ['vue-instantsearch', 'instantsearch.js/es'],
   },
