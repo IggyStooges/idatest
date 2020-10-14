@@ -3,6 +3,10 @@ export default {
 
   target: 'static',
 
+  router: {
+    base: '/idatest/'
+  },
+
   head: {
     title: 'idatest',
     meta: [
